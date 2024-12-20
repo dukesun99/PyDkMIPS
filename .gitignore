@@ -31,6 +31,6 @@
 *.out
 *.app
 
-DkMIPS-api/test_data
+DkMIPS-api/test_data/
 
 test.ipynb
