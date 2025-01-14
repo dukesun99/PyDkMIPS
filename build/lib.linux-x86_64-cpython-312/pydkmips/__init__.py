@@ -181,21 +181,21 @@ class Dual_Greedy(DkMIPS):
     """
     A Python wrapper for the C++ Dual_Greedy class with additional parameter checking and utilities.
     """
-    def __init__(self, d1, d2=None):
+    def __init__(self, d1, d2):
         super().__init__(d1, d2, _Dual_Greedy, is_bc_method=False)
     
     def __repr__(self):
         return f"Dual_Greedy(implementation={self._impl})"
     
 class BC_Greedy(DkMIPS):
-    def __init__(self, d1, d2=None):
+    def __init__(self, d1, d2):
         super().__init__(d1, d2, _BC_Greedy, is_bc_method=True)
     
     def __repr__(self):
         return f"BC_Greedy(implementation={self._impl})"
     
 class BC_Dual(DkMIPS):
-    def __init__(self, d1, d2=None):
+    def __init__(self, d1, d2):
         super().__init__(d1, d2, _BC_Dual, is_bc_method=True)
     
     def __repr__(self):
