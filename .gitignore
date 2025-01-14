@@ -34,3 +34,7 @@
 DkMIPS-api/test_data/
 
 test.ipynb
+
+__pycache__/
+
+pydkmips.egg-info/
