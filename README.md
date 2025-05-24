@@ -19,6 +19,7 @@ pip install .
 - pybind11 >= 2.6.0
 - C++ compiler with C++11 support
 - OpenMP support
+- **Linux Environment Only**
 
 ## Usage
 
@@ -27,18 +28,18 @@ import numpy as np
 import pydkmips
 
 # Initialize with n items and d dimensions
-n, d = 1000, 128
-items = np.random.rand(n, d).astype(np.float32)
-index = pydkmips.BC_Greedy(n) # if you only have one single space
-# index = pydkmips.BC_Greedy(n1, n2) # if you have two spaces
+n, d1, d2 = 1000, 128, 256
+items1 = np.random.rand(n, d1).astype(np.float32)
+items2 = np.random.rand(n, d2).astype(np.float32)
 
-index.add(items) # if you only have one single space
-# index.add(items1, items2) # if you have two spaces
+index = pydkmips.BC_Greedy(d1, d2) # if you have two spaces
+
+index.add(items1, items2) # if you have two spaces
 
 # Run DkMIPS+ algorithm
 k = 10  # number of items to retrieve
 lambda_param = 0.5
 c = 0.5 # this parameter need to be tuned
-query = np.random.rand(d).astype(np.float32)
+query = np.random.rand(d1).astype(np.float32)
 results = index.search(query, k, lambda_param, c, objective="avg") # if you want to use max objective, just change "avg" to "max"
 ```
